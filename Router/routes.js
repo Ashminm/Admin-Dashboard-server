@@ -3,7 +3,8 @@ const router=new express.Router()
 
 const proiductController=require('../Controller/productController')
 
-router.get('/allProduct',proiductController.getAllProduct)
+router.post('/add-product',proiductController.addProduct)
+router.get('/get-allProduct',proiductController.getProduct)
 
 
 
