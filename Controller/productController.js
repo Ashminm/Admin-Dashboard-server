@@ -6,7 +6,7 @@ exports.addProduct=async(req,res)=>{
         const lastProduct = await products.findOne().sort({ id: -1 }).exec();
         const newId = lastProduct ? lastProduct.id + 1 : 1;
 
-        const newProduct=await products({id:newId,title,description,barand,category,price,image})
+        const newProduct=await products({id:newId,title,description,barand,category,price,image,date: Date.now()})
         await newProduct.save()
         res.status(200).json(newProduct)
     }catch(err){
